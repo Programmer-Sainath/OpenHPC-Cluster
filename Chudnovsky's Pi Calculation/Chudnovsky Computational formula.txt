@@ -1,4 +1,3 @@
-
 # Finding the digits of pi using Chudnovsky algorithm
 
 from decimal import Decimal, getcontext
