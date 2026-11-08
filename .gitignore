@@ -47,3 +47,7 @@ id_ed25519
 
 # Generated simulation output
 *.cache
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
