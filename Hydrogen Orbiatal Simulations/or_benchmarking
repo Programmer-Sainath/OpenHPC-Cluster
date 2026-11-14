@@ -1,0 +1,12 @@
+Benchmarking of Simple Sieve of Eratosthenes on an ASUS TUF A15 laptop with following specs:-
+
+System type  	  64-bit operating system, x64-based processor
+Processor	AMD   Ryzen 7 7445HS w/ Radeon 740M Graphics (3.20 GHz)
+Installed RAM	  16.0 GB (15.3 GB usable)
+Graphics card	  NVIDIA GeForce RTX 3050 Laptop GPU (4 GB)
+		            AMD Radeon 740M Graphics (512 MB)
+
+
+or_mpi4py code with N = 4,000,000 : Time taken = 1m 1.7s
+
+or_mpi4py code with N = 160 : Time taken = 0.05
