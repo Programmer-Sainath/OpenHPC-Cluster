@@ -1,7 +1,10 @@
+"""
 26/05/2026
 
 Miller-Rabin Test for large primes : https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test
 _________________________________________________________________________________________
+"""
+
 import random
 import time
 import timeit
