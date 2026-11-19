@@ -1,6 +1,6 @@
 Miller-Rabin prime search: 2048-bit probable primes (repo miller_rabin, 20 rounds per candidate; each prime re-checked)
 MPI ranks: 16 on 4 node(s)   Time budget: 60 s   Wall time: 60.4 s
-Primes found: 246 (246 verified)   Rate: 244.6 primes/min
+Primes found: 246 (246 verified)   Rate: 244.4 primes/min
 Digits wrapped at 100 characters per line.
 ----------------------------------------------------------------
 Prime 1 (2048 bits):

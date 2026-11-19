@@ -1,0 +1,8 @@
+job: 75  nodes: node01  ntasks: 4  tasks/node: 4  cpus/task: 1  args: mersenne 16 M4423,M9689,M11213,C4253x4423
+start: 2026-11-19 07:13:47
+ROW | M4423 | 4423 | prime | probably prime | yes | 4 | 1 | 16 | 1.05 | 1.05 | 1.05 | node01 1.0 |
+ROW | M9689 | 9689 | prime | probably prime | yes | 4 | 1 | 16 | 9.78 | 9.78 | 9.77 | node01 9.8 |
+ROW | M11213 | 11213 | prime | probably prime | yes | 4 | 1 | 16 | 14.96 | 14.96 | 14.91 | node01 15.0 |
+ROW | C4253x4423 | 8676 | composite | composite | yes | 4 | 1 | 16 | 1.66 | 1.66 | 1.66 | node01 1.7 |
+PEAKMEM | largest per-rank resident memory: 26 MB
+end: 2026-11-19 07:14:15

@@ -1,0 +1,5 @@
+job: 82  nodes: node[01-04]  ntasks: 16  tasks/node: 4  cpus/task: 1  args: mersenne 16 M86243
+start: 2026-11-19 07:22:35
+ROW | M86243 | 86243 | prime | probably prime | yes | 16 | 4 | 16 | 1413.34 | 1413.34 | 1411.89 | node01 1413.3, node02 1412.5, node03 1413.3, node04 1413.3 |
+PEAKMEM | largest per-rank resident memory: 27 MB
+end: 2026-11-19 07:46:09
