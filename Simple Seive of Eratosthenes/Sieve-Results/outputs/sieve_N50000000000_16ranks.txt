@@ -1,0 +1,33 @@
+Distributed sieve of Eratosthenes (odd numbers only, one uint8 flag per odd number held in RAM)
+N = 50,000,000,000   MPI ranks: 16 on 4 node(s)   Wall time: 68.9 s
+pi(N) = 2,119,654,578   Largest prime <= N: 49,999,999,967   Correct: yes (spot-check only)
+----------------------------------------------------------------
+Slice of each rank (index of odd numbers) and the primes found in it:
+rank  0  node01    1,562,500,000 odd numbers  150,172,313 primes  60.9 s
+rank  1  node01    1,562,500,000 odd numbers  140,466,628 primes  63.3 s
+rank  2  node01    1,562,500,000 odd numbers  137,230,093 primes  64.0 s
+rank  3  node01    1,562,500,000 odd numbers  135,213,497 primes  64.1 s
+rank  4  node02    1,562,500,000 odd numbers  133,749,441 primes  66.7 s
+rank  5  node02    1,562,500,000 odd numbers  132,603,786 primes  66.9 s
+rank  6  node02    1,562,500,000 odd numbers  131,673,112 primes  67.1 s
+rank  7  node02    1,562,500,000 odd numbers  130,878,534 primes  67.1 s
+rank  8  node03    1,562,500,000 odd numbers  130,197,098 primes  67.9 s
+rank  9  node03    1,562,500,000 odd numbers  129,593,749 primes  68.0 s
+rank 10  node03    1,562,500,000 odd numbers  129,056,808 primes  68.1 s
+rank 11  node03    1,562,500,000 odd numbers  128,579,431 primes  68.1 s
+rank 12  node04    1,562,500,000 odd numbers  128,134,584 primes  68.7 s
+rank 13  node04    1,562,500,000 odd numbers  127,730,745 primes  68.8 s
+rank 14  node04    1,562,500,000 odd numbers  127,362,141 primes  68.8 s
+rank 15  node04    1,562,500,000 odd numbers  127,012,617 primes  68.9 s
+----------------------------------------------------------------
+The last 50 primes <= N:
+49999998791  49999998799  49999998821  49999998871  49999998887
+49999998901  49999998907  49999998943  49999998991  49999999009
+49999999019  49999999039  49999999067  49999999103  49999999139
+49999999151  49999999163  49999999171  49999999177  49999999199
+49999999213  49999999219  49999999297  49999999333  49999999337
+49999999397  49999999409  49999999457  49999999459  49999999507
+49999999523  49999999579  49999999589  49999999591  49999999619
+49999999657  49999999669  49999999717  49999999723  49999999729
+49999999771  49999999781  49999999811  49999999817  49999999823
+49999999853  49999999867  49999999957  49999999961  49999999967
