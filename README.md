@@ -21,7 +21,7 @@ This repository also serves as a technical reference for the actual cluster conf
 
 | Member                          | Role and Responsibilities                                                  |
 | ------------------------------- | -------------------------------------------------------------------------- |
-| **Shanmukha Sainath Kasireddy** | Project Director · Lead HPC Infrastructure Engineer · Simulations          |
+| **Shanmukha Sainath Kasireddy** | Project Director · HPC Infrastructure Engineer · Simulations               |
 | **Eric Bipin Philip**           | Software · Infrastructure · Linux Administration                           |
 | **Aayush Pal**                  | Simulations · Performance Analysis                                         |
 
