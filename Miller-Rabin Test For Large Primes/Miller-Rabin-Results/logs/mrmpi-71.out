@@ -1,0 +1,10 @@
+job: 71  nodes: node01  ntasks: 4  tasks/node: 4  cpus/task: 1  args: search 2048 60
+start: 2026-11-19 07:04:47
+RANK | 2048-bit search | 4 ranks | 0 | node01 | 60.0 | 1626 | 16 |
+RANK | 2048-bit search | 4 ranks | 1 | node01 | 60.0 | 1659 | 14 |
+RANK | 2048-bit search | 4 ranks | 2 | node01 | 60.0 | 1683 | 13 |
+RANK | 2048-bit search | 4 ranks | 3 | node01 | 60.0 | 1567 | 19 |
+ROW | search 2048-bit | 60 s budget | 4 | 1 | 6535 | 62 (62 verified) | 60.0 | 62.0 | node01 62 |
+saved=primes_2048bit_4ranks.txt
+PEAKMEM | largest per-rank resident memory: 25 MB
+end: 2026-11-19 07:05:53

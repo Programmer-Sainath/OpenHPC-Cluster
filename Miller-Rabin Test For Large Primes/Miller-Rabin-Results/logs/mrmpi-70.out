@@ -1,0 +1,7 @@
+job: 70  nodes: node01  ntasks: 1  tasks/node: 1  cpus/task: 1  args: search 2048 60
+start: 2026-11-19 07:03:41
+RANK | 2048-bit search | 1 ranks | 0 | node01 | 60.0 | 1742 | 16 |
+ROW | search 2048-bit | 60 s budget | 1 | 1 | 1742 | 16 (16 verified) | 60.0 | 16.0 | node01 16 |
+saved=primes_2048bit_1ranks.txt
+PEAKMEM | largest per-rank resident memory: 25 MB
+end: 2026-11-19 07:04:46
