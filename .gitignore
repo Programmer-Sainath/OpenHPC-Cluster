@@ -1,14 +1,76 @@
-# Compile and scheduler artifacts
-lbm_mpi
-hosts.*
-logs/
-runs/
-bench.list
-prod.jobs
-tests/lbm_serial_test
-tests/frames/
-*.out
-*.err
-.DS_Store
+
+# ==========================================
+# OpenHPC Cluster - Simulation Workloads
+# .gitignore
+# ==========================================
+
+# Python cache files
 __pycache__/
-# Note: media/vortex.mp4 is deliberately tracked as the finished experiment artifact.
+*.py[cod]
+*$py.class
+
+# Python virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Build and distribution files
+build/
+dist/
+*.egg-info/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Other IDE files
+.idea/
+*.swp
+*.swo
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary and backup files
+*.tmp
+*.bak
+*~
+
+# Log files
+*.log
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Private keys and certificates
+*.pem
+*.key
+id_rsa
+id_ed25519
+
+# Cache files
+*.cache
+
+# Slurm generated output
+slurm-*.out
+slurm-*.err
+
+# Compiled C/C++ binaries and object files
+*.o
+*.obj
+*.so
+*.a
+*.exe
+
+# Python profiling files
+*.prof
+*.pstats
+
