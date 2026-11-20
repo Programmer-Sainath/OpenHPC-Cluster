@@ -1,0 +1,6 @@
+node,role,cpu_model,core_count,memory_total_linux,memory_available_snapshot,interface_speeds,os_version,kernel
+admin,admin,Intel(R) Core(TM) i5-4460S CPU @ 2.90GHz,4,15Gi,11Gi,"enp2s0: 1000 Mbps, enp3s0: 1000 Mbps",Rocky Linux 9.8 (Blue Onyx),5.14.0-687.53.1.el9_8.x86_64
+node01,compute,Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz,4,15Gi,12Gi,enp3s0: 1000 Mbps,Rocky Linux 9.8 (Blue Onyx),5.14.0-687.56.1.el9_8.x86_64
+node02,compute,Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz,4,15Gi,12Gi,enp3s0: 1000 Mbps,Rocky Linux 9.8 (Blue Onyx),5.14.0-687.56.1.el9_8.x86_64
+node03,compute,Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz,4,15Gi,12Gi,enp3s0: 1000 Mbps,Rocky Linux 9.8 (Blue Onyx),5.14.0-687.56.1.el9_8.x86_64
+node04,compute,Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz,4,15Gi,12Gi,enp3s0: 1000 Mbps,Rocky Linux 9.8 (Blue Onyx),5.14.0-687.56.1.el9_8.x86_64

@@ -1,0 +1,12 @@
+job: 94  nodes: node01  ntasks: 4  tasks/node: 4  cpus/task: 1  tag: bench4  args: --nx 3072 --ny 1024 --diameter 128 --re 120 --steps 4000 --start-snapshot 4001 --snapshot-every 1000 --stride 4 --log-every 1000
+start: 2026-11-20 21:11:53
+D2Q9 MPI LBM | 4 ranks | grid 3072x1024 | steps 4000 | cylinder D 128
+Re=120.0000, U=0.06000, nu=0.0640000, tau=0.692000, periodic y, zero-gradient outlet
+Global population buffers ~0.63 GiB (3x 9 doubles/site), plus auxiliary fields
+Frames: stride=4 every=1000 after step=4001, output=runs/bench4-94
+Step 1000/4000 | mass 3.1329e+06 | max(u) 0.09835 | elapsed 80.9 s | avg 38.88 MLUPS
+Step 2000/4000 | mass 3.1333e+06 | max(u) 0.10462 | elapsed 161.5 s | avg 38.96 MLUPS
+Step 3000/4000 | mass 3.1334e+06 | max(u) 0.09181 | elapsed 242.1 s | avg 38.99 MLUPS
+Step 4000/4000 | mass 3.1348e+06 | max(u) 0.09206 | elapsed 322.6 s | avg 39.00 MLUPS
+Finished: 0 frames, wall time 322.65 s, average 39.00 million lattice updates/sec
+end: 2026-11-20 21:17:16

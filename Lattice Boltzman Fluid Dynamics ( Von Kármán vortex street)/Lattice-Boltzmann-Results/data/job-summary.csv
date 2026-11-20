@@ -1,0 +1,8 @@
+job_id,purpose,nodes,mpi_ranks,tasks_per_node,solver_wall_s,solver_MLUPS,frames,accounting_available,per_rank_timing_available,peak_RSS_available
+91,eq1,1,1,1,11.74,11.17,8,no,no,no
+92,eq16,4,16,4,1.27,103.59,8,no,no,no
+93,bench1,1,1,1,1059.16,11.88,0,no,no,no
+94,bench4,1,4,4,322.65,39.0,0,no,no,no
+95,bench16,4,16,4,88.26,142.56,0,no,no,no
+96,prod,4,16,4,897.84,140.15,289,no,no,no
+97,video_encoding,1,N/A,1,N/R,N/A,N/A,no,N/A,no

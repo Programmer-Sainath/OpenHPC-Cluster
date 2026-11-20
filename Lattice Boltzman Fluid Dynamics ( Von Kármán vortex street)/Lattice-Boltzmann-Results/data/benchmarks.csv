@@ -1,0 +1,4 @@
+job_id,label,nodes,mpi_ranks,time_seconds,throughput_MLUPS,speedup_vs_1_rank,parallel_efficiency_vs_1_rank
+93,bench1,1,1,1059.16,11.88,1.0,100.0
+94,bench4,1,4,322.65,39.0,3.2828,82.07
+95,bench16,4,16,88.26,142.56,12.0,75.0

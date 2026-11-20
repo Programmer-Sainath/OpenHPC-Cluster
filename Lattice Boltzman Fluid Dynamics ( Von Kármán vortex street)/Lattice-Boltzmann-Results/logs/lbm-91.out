@@ -1,0 +1,24 @@
+job: 91  nodes: node01  ntasks: 1  tasks/node: 1  cpus/task: 1  tag: eq1  args: --nx 640 --ny 256 --diameter 32 --re 100 --steps 800 --snapshot-every 100 --start-snapshot 100 --stride 1 --log-every 100
+start: 2026-11-20 20:53:47
+D2Q9 MPI LBM | 1 ranks | grid 640x256 | steps 800 | cylinder D 32
+Re=100.0000, U=0.06000, nu=0.0192000, tau=0.557600, periodic y, zero-gradient outlet
+Global population buffers ~0.03 GiB (3x 9 doubles/site), plus auxiliary fields
+Frames: stride=1 every=100 after step=100, output=runs/eq1-91
+Step 100/800 | mass 1.6304e+05 | max(u) 0.11255 | elapsed 1.5 s | avg 11.29 MLUPS
+Frame 0 saved (step 100, 640x256)
+Step 200/800 | mass 1.6304e+05 | max(u) 0.10070 | elapsed 2.9 s | avg 11.23 MLUPS
+Frame 1 saved (step 200, 640x256)
+Step 300/800 | mass 1.6307e+05 | max(u) 0.09629 | elapsed 4.4 s | avg 11.21 MLUPS
+Frame 2 saved (step 300, 640x256)
+Step 400/800 | mass 1.6307e+05 | max(u) 0.09453 | elapsed 5.9 s | avg 11.20 MLUPS
+Frame 3 saved (step 400, 640x256)
+Step 500/800 | mass 1.6307e+05 | max(u) 0.09703 | elapsed 7.3 s | avg 11.20 MLUPS
+Frame 4 saved (step 500, 640x256)
+Step 600/800 | mass 1.6307e+05 | max(u) 0.09580 | elapsed 8.8 s | avg 11.19 MLUPS
+Frame 5 saved (step 600, 640x256)
+Step 700/800 | mass 1.6308e+05 | max(u) 0.09068 | elapsed 10.3 s | avg 11.19 MLUPS
+Frame 6 saved (step 700, 640x256)
+Step 800/800 | mass 1.631e+05 | max(u) 0.08945 | elapsed 11.7 s | avg 11.19 MLUPS
+Frame 7 saved (step 800, 640x256)
+Finished: 8 frames, wall time 11.74 s, average 11.17 million lattice updates/sec
+end: 2026-11-20 20:53:58
