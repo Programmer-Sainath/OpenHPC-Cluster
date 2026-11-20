@@ -32,27 +32,27 @@ The cluster is built from five repurposed Lenovo ThinkCentre desktop PCs, using 
 
 ### Admin Node
 
-| Component    | Specification                         |
-| ------------ | ------------------------------------- |
-| Quantity     | 1                                     |
-| Processor    | Intel Core i5-4460                    |
-| Memory       | 16 GB DDR3                            |
-| Storage      | 128 GB SSD                            |
-| Network      | Gigabit Ethernet                      |
-| Primary Role | Cluster management and administration |
+| Component    | Specification                                |
+| ------------ | -------------------------------------------- |
+| Quantity     | 1                                            |
+| Processor    | Intel(R) Core(TM) i5-4460s CPU @ 2.90 GHz    |
+| Memory       | 16 GB DDR3                                   |
+| Storage      | 128 GB SSD                                   |
+| Network      | Gigabit Ethernet                             |
+| Primary Role | Cluster management and administration        |
 
 The admin node hosts the cluster management services, including the Slurm controller, Warewulf, NFS, and SSH, as configured for the deployment.
 
 ### Compute Nodes
 
-| Component               | Specification                               |
-| ----------------------- | ------------------------------------------- |
-| Quantity                | 4                                           |
-| Processor               | Intel Core i5-4460                          |
-| Memory                  | 16 GB DDR3 per node                         |
-| Combined Compute Memory | 64 GB DDR3                                  |
-| Network                 | Gigabit Ethernet                            |
-| Primary Role            | Scheduled parallel and scientific workloads |
+| Component               | Specification                                  |
+| ----------------------- | ---------------------------------------------- |
+| Quantity                | 4                                              |
+| Processor               | Intel(R) Core(TM) i5-2400 CPU @ 3.10 GHz       |
+| Memory                  | 16 GB DDR3 per node                            |
+| Combined Compute Memory | 64 GB DDR3                                     |
+| Network                 | Gigabit Ethernet                               |
+| Primary Role            | Scheduled parallel and scientific workloads    |
 
 ### Aggregate Resources
 
