@@ -1,53 +1,14 @@
-# Python cache files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Python virtual environments
-venv/
-.venv/
-env/
-ENV/
-
-# Python packaging
-build/
-dist/
-*.egg-info/
-
-# Jupyter Notebook
-.ipynb_checkpoints/
-
-# IDE and editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Operating system files
+# Compile and scheduler artifacts
+lbm_mpi
+hosts.*
+logs/
+runs/
+bench.list
+prod.jobs
+tests/lbm_serial_test
+tests/frames/
+*.out
+*.err
 .DS_Store
-Thumbs.db
-Desktop.ini
-
-# Temporary files
-*.tmp
-*.bak
-*~
-
-# Logs
-*.log
-
-# Environment variables and secrets
-.env
-.env.*
-!.env.example
-*.pem
-*.key
-id_rsa
-id_ed25519
-
-# Generated simulation output
-*.cache
-
-# Visual Studio Code
-.vscode/
-*.code-workspace
+__pycache__/
+# Note: media/vortex.mp4 is deliberately tracked as the finished experiment artifact.

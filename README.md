@@ -1,82 +1,126 @@
-# HPC Simulation & Computational Workloads
+# Lattice Boltzmann Fluid Dynamics — von Kármán Vortex Street
 
-This branch contains mathematical and scientific computing workloads developed, executed, and tested using our **five-machine High-Performance Computing (HPC) cluster**.
+**MPI-accelerated D2Q9 computational fluid dynamics simulation on a four-node school HPC cluster.**  
+**Status:** Completed production visualization and three parallel-scaling benchmarks; quantitative fluid-physics validation remains future work.
 
-The objective is to explore how computationally intensive problems can be implemented, executed, and evaluated in an HPC environment. These workloads also serve as practical tests of the cluster's computational capabilities, software infrastructure, and job execution workflow.
+![Final vortex street visualization](media/final-frame.png)
 
-## Cluster Environment
+**[Watch the actual four-node simulation (MP4)](media/vortex.mp4)** · [Simulation contact sheet](media/vortex_contactsheet.jpg) · [Measured HPC benchmark graph](results/benchmark-throughput.png)
 
-The workloads in this branch are associated with the following cluster:
+## Overview
 
-- **5 physical machines:** 1 administration node and 4 compute nodes
-- **Operating System:** Rocky Linux 9
-- **CPU:** Intel Core i5-4460
-- **Memory:** 16 GB RAM per machine
-- **Workload Management:** Slurm
-- **Cluster Provisioning:** Warewulf
-- **Authentication:** Munge
-- **Networking:** Gigabit Ethernet
+This project models **2-D, weakly compressible flow past a stationary circular cylinder** with a D2Q9 Bhatnagar–Gross–Krook (BGK) lattice Boltzmann solver written in **C and MPI**. At Reynolds number 120, the downstream wake transitions from a near-symmetric pattern to a visibly alternating wake consistent with **von Kármán vortex shedding**. Output frames show **signed vorticity** (cyan and orange/red, opposite senses of rotation), **not tracer particles**.
 
-## Computational Workloads
+The solver partitions the domain among independent MPI ranks, exchanges neighbor halo columns, renders PPM snapshots, and produces an H.264 MP4. The actual production video and measured cluster benchmarks are included in this directory.
 
-The following projects explore different mathematical and computational problems.
+## Hardware and software
 
-### 1. Chudnovsky's Pi Calculation
-Implementation of the Chudnovsky algorithm for high-precision calculation of π.
+| Component | Configuration |
+|---|---|
+| Compute | **4 Lenovo ThinkCentre nodes**, Intel Core i5-4460, 4 physical cores and 16 GB DDR3 each |
+| Available compute total | **16 physical cores, 64 GB DDR3** |
+| Admin | 1 separate node (16 GB DDR3), used for SSH, build, scheduling, files |
+| Network | Ethernet cluster interconnect; MPI network interface should be selected per site |
+| OS / batch system | **Rocky Linux 9**, OpenHPC / Slurm |
+| Parallel library | **Open MPI**, 16 MPI ranks for production |
+| Implementation | C11, MPI, D2Q9 BGK lattice Boltzmann |
+| Animation | FFmpeg / imageio-ffmpeg, H.264 MP4 |
 
-- Focus: Arbitrary-precision arithmetic and computational mathematics.
-- Demonstrated result: Calculation of **1,000,000 digits of π in 72 seconds** on the HPC cluster.
-- Further work: Benchmarking execution time at different precision levels and documenting performance.
+*The same grid can run on a single workstation: the HPC contribution is the measured **parallel speedup**, not merely the existence of a simulation.*
 
-### 2. Dask Primality
-Exploration of distributed computing using Dask for computational number theory.
+## Final production run
 
-- Focus: Parallel and distributed task execution.
-- Objective: Explore how computational workloads can be divided and processed across available resources.
+| Setting | Value |
+|---|---:|
+| Slurm compute job | **96** (video encoder job **97**) |
+| Grid | **2048 × 768** = 1,572,864 sites |
+| Time steps | **80,000** |
+| Nominal lattice-site updates | **125,829,120,000** (~125.8 billion) |
+| Reynolds number | **120** |
+| Cylinder diameter | **96 lattice cells** |
+| Inlet speed | **0.06 lattice units/step** |
+| Kinematic viscosity / BGK relaxation time | **0.048 / 0.644** |
+| Compute allocation | **4 nodes × 4 MPI ranks = 16 ranks** |
+| Snapshots | Steps 8000–80000, every 250; **289 frames** |
+| MP4 video | **1024 × 384**, 24 fps, **12.04 seconds**, H.264 |
 
-### 3. Miller–Rabin Test for Large Primes
-Implementation and testing of the Miller–Rabin probabilistic primality test.
+![Selected stages from the recorded video](media/vortex_contactsheet.jpg)
 
-- Focus: Large-integer arithmetic and primality testing.
-- Objective: Evaluate the computational cost of testing large numbers for probable primality.
+### What the video demonstrates
 
-### 4. Sieve of Eratosthenes
-Implementation of the Sieve of Eratosthenes for generating prime numbers.
+The cylinder generates a wake that evolves visibly from an approximately symmetric shape into an alternating, wavy pattern. The generated movie captures a developed visual vortex street. A video alone does **not** prove quantitative CFD accuracy or the shedding-frequency prediction; see [Validation and limitations](docs/VALIDATION.md).
 
-- Focus: Algorithmic efficiency and computational number theory.
-- Objective: Examine execution time and performance as the input range increases.
+## Measured performance: same workload on 1, 4 and 16 ranks
 
-## Repository Structure
+All three benchmarks used **3072 × 1024 cells for 4000 steps**, with frame output disabled. These are **actual user-supplied Slurm results**, not estimates.
 
-Each workload is maintained as an independent project, with its own code, documentation, results, and troubleshooting notes where applicable.
+| Configuration | Job | Wall time | Throughput | Speedup vs 1 rank | Parallel efficiency |
+|---|---:|---:|---:|---:|---:|
+| 1 MPI rank / 1 node | 93 | 1059.16 s | 11.88 MLUPS | 1.00× | 100% |
+| 4 MPI ranks / 1 node | 94 | 322.65 s | 39.00 MLUPS | 3.28× | 82.1% |
+| 16 MPI ranks / 4 nodes | 95 | 88.26 s | 142.56 MLUPS | **12.00×** | **75.0%** |
+
+![Benchmark throughput](results/benchmark-throughput.png)
+
+Relative to four ranks on one node, the 16-rank run has **3.66×** the throughput. Scaling is good for an older networked CPU cluster, but nonideal due to communication, memory/cache behavior and other overhead.
+
+## Folder guide
 
 ```text
-Simulation-Workloads/
-│
-├── Chudnovsky's Pi Calculation/
-├── Dask Primility/
-├── Miller-Rabin Test For Large Primes/
-└── Simple Seive of Eratosthenes/
+Lattice Boltzman Fluid Dynamics ( Von Kármán vortex street)/
+├── README.md                  # Project landing page for GitHub
+├── lbm_mpi.c                  # Original C/MPI solver used for the experiment
+├── build.sh                   # Build with mpicc
+├── lbm.sbatch                 # Reproduced cluster-compatible mpirun job script
+├── encode.sbatch              # Dependent video encoding job
+├── run-production.sh          # Reproduce the successful production configuration
+├── benchmark.sh               # Re-run the 1/4/16-rank benchmark sequence
+├── check-frame-equivalence.sh # Compare output frames from validation cases
+├── docs/
+│   ├── METHODS.md             # Physics, LBM method, MPI algorithm
+│   ├── RESULTS.md             # Interpretation of actual metrics and video
+│   ├── VALIDATION.md          # What is validated and what is not
+│   ├── REPRODUCE.md           # Rocky Linux, Slurm, video, and Windows download
+│   └── EXPERIMENT_LOG.md      # Dated summary of jobs and terminal evidence
+├── results/
+│   ├── benchmarks.csv
+│   ├── benchmark-throughput.png
+│   └── production-run.json
+├── media/
+│   ├── vortex.mp4             # Actual output from production jobs 96/97
+│   ├── final-frame.png
+│   └── vortex_contactsheet.jpg
+├── tests/                    # Developer-only one-rank test shim
+└── examples/                 # Separate small local demonstration, not the HPC video
 ```
 
-## Performance Evaluation
+## Running it
 
-Where applicable, workloads are evaluated using:
+The tested Open MPI installation did not support the direct `srun ./lbm_mpi` launch method. The jobs used **`mpirun` inside a Slurm allocation**, with a hostfile constructed from Slurm's allocated nodes. This repository includes that approach rather than the unmodified `srun` templates from the original starter ZIP.
 
-- Execution time
-- Input size and computational complexity
-- Resource utilization
-- Scalability and parallel execution behaviour
-- Comparison between different implementations
+```bash
+# In an SSH terminal on the Rocky Linux admin node:
+mkdir -p logs runs
+export PATH=/usr/lib64/openmpi/bin:$PATH
+bash build.sh
 
-Benchmark results and observations will be documented alongside their respective workloads. Results will be reported with their execution conditions so that measurements can be interpreted accurately.
+# Only after checking the MPI settings and scheduling limits:
+bash run-production.sh
+cat prod.jobs
+squeue -u "$USER"
+```
 
-## Project Scope
+The runner submits the production job plus a second job that encodes the video **only when the simulation finishes successfully**. Downloading `vortex.mp4` before both are done returns a “No such file” error because the video has not yet been created. For benchmark instructions, scientific caveats, and copying the final MP4 to Windows, read [Reproduction guide](docs/REPRODUCE.md).
 
-This branch is an ongoing collection of computational workloads used to explore mathematical computing, parallel processing, and scientific computing through our school-built HPC cluster.
+## Scientific scope and integrity
 
-Future work will focus on expanding the workload collection, improving implementations, conducting repeatable benchmarks, and exploring more computationally demanding problems, including physics-based simulations and concepts related to Computational Fluid Dynamics (CFD).
+- **Demonstrated:** parallel D2Q9 computation, 1/4/16-rank scaling, matching validation-case frame output between 1 and 16 ranks, completed cylinder-flow animation.
+- **Not yet demonstrated:** mesh-independence, domain-independence, physical dimensional units, lift/drag coefficients, measured shedding frequency/Strouhal number, comparison with accepted experimental/numerical references, or quantified conservation error.
+- **Heavy-workload idea, not claimed as completed:** 6144 × 2048 for 160,000 steps (~2.01 trillion updates). It has not been included in the measured results.
+- Open boundaries use a basic zero-gradient treatment; transverse boundaries are periodic. Interpret quantitative results cautiously.
 
----
+## Credits and provenance
 
-**Part of the OpenHPC-Cluster project.**
+Prepared for the school **HPC Project Team**. The solver and starter materials were developed with AI coding assistance (ChatGPT); subsequent Slurm launcher troubleshooting, benchmarks and production execution were carried out with additional Claude assistance. The recorded benchmark outputs and video are artifacts supplied from the actual four-node cluster. The documentation distinguishes measured evidence from inference and planned tests. Contributors should add or confirm names and roles before publication.
+
+This directory is a project folder for inclusion in an existing HPC repository, rather than a separate Git repository. Any licensing terms should follow the destination repository's policy.
