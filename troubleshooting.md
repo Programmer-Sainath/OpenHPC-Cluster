@@ -35,6 +35,5 @@ Resolution: Updated network configurations within system overlays, restarted cor
 ### Issue 006
 Kernel Module Paths & Symbolic Links
 
-Issue: Missing or mismatched kernel module paths during initial image compilation for rockylinux-9 images.[Eric Bipin Philip]
-
+Issue: Missing or mismatched kernel module paths during initial image compilation for rockylinux-9 images.
 Resolution: Re-created required kernel symbolic links inside the container/chroot image environment prior to image generation.-[Shanmukha Sainath]
