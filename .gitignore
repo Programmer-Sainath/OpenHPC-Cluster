@@ -74,3 +74,8 @@ slurm-*.err
 *.prof
 *.pstats
 
+
+# Locally generated benchmark artifacts
+**/runs/
+**/hosts.[0-9]*
+**/lbm_mpi
