@@ -31,4 +31,4 @@ NodeName=node01 Arch=x86_64 CoresPerSocket=4
    RealMemory=15000 AllocMem=0 FreeMem=13086 Sockets=1 Boards=1
 ```
 
-Interconnect: Ethernet through a Cisco Catalyst switch (negotiated NIC speeds in the table above). Head node: localhost, 4 logical CPUs; jobs run only on node01-node04.
+Interconnect: 1 GbE links (NIC-reported negotiated speeds in the table above). The project team reports a **TP-Link LS1016G unmanaged switch** in this setup; the environment snapshot itself does not identify the switch model. Head node: localhost, 4 logical CPUs; jobs run only on node01-node04.

@@ -10,7 +10,7 @@ Use Dask's local distributed scheduler to run independent random **Miller–Rabi
 
 Each worker searches randomly generated 1,024-bit odd candidates. An independent Dask task returns a probable prime; the parent process accepts the first completed result, verifies the bit length, performs a Fermat check and an additional probabilistic Miller–Rabin check, then cancels remaining tasks. `pure=False` is an important experiment setting: identical calls to `submit()` can otherwise be deduplicated when Dask assumes a pure function.
 
-The benchmark script is [`Dask-Primility-Results/code/dask_local.py`](Dask-Primility-Results/code/dask_local.py). The older [`Dask Primility.py`](<Dask Primility.py>) is a development prototype, **not** the Slurm-recorded entry point; in its current archived form it defines `main()` without calling it.
+The benchmark script is [`Dask-Primility-Results/code/dask_local.py`](Dask-Primility-Results/code/dask_local.py). The older [`Dask Primility.py`](<Dask Primility.py>) is a development prototype, **not** the Slurm-recorded entry point. It now has a Linux entry point and submits independent tasks (`pure=False`), but its output is not part of the archived benchmarks.
 
 ## Recorded benchmark
 
@@ -37,7 +37,7 @@ Requires a working `dask.distributed` installation on the allocated compute node
 
 ## Interpretation and limitations
 
-- Miller–Rabin is **probabilistic** for arbitrary large numbers. The local `verified=True` field reports further probabilistic checks, **not** a certificate of primality.
+- Miller–Rabin is **probabilistic** for arbitrary large numbers. The local `verified=True` field reports further probabilistic checks, **not** a certificate of primality. New runs abort rather than save a candidate if that verification fails.
 - Stochastic search times vary; multiple independent batch runs and statistical uncertainty would be needed for strong scaling conclusions.
 - The `pure=True` condition can reuse/deduplicate identical work: this is a useful scheduling experiment but not the same amount of independent work.
 - A future multi-node Dask study would require an actual distributed scheduler/worker deployment and network-aware Slurm script.

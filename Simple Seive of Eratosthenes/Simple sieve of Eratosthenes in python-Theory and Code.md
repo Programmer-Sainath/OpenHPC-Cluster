@@ -1,3 +1,8 @@
+# Historical prototype and theory notes
+
+This file is an **unchanged transcription** of the historical `Simple sieve of Eratosthenes in python-Theory and Code.py` draft, which mixed Python snippets and explanatory text and was **not an executable script**. Use the documented benchmark implementation in the corresponding `*-Results/code/` directory instead.
+
+~~~~text
 '''
 20/05/2026
 Creating a Simple sieve of Eratosthenes in python (juypiter library), to find primes up to a range n
@@ -123,19 +128,4 @@ def threaded_sieve(n, max_threads):
 ____________________________________________________________________________________________________
 Space complexity : O(n)
 Time complexity : O(n log log n)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+~~~~

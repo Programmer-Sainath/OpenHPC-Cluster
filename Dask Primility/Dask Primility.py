@@ -78,7 +78,7 @@ def findprime(loopnum):
 
 def main():
 
-    workers = os.cpu_count()
+    workers = min(os.cpu_count() or 1, int(os.environ.get("SLURM_CPUS_PER_TASK", "4")))
 
     print(f"Starting Dask with {workers} workers")
 
@@ -93,7 +93,7 @@ def main():
     print(client)
 
     futures = [
-        client.submit(findprime, LOOPNUM) for x in range(workers)
+        client.submit(findprime, LOOPNUM, pure=False) for x in range(workers)
     ]
 
     prime = None
@@ -110,3 +110,7 @@ def main():
     client.close()
     cluster.close()
     return prime
+
+
+if __name__ == "__main__":
+    print("Probable prime:", main())

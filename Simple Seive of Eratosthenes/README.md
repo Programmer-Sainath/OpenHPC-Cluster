@@ -31,7 +31,7 @@ sbatch -N1 --ntasks-per-node=4 sieve_mpi.sbatch 1e8
 # sbatch -N4 --ntasks-per-node=4 sieve_mpi.sbatch 1e10
 ```
 
-The historical [`slurm_commands.md`](Sieve-Results/slurm_commands.md) embeds `(total ranks ...)` explanatory annotations in its sample commands; those annotations are **not executable**. The corrected recipes in [docs/RUN_RECIPES.md](../docs/RUN_RECIPES.md) show proper `-N` and `--ntasks-per-node` options.
+The original Slurm notes have been rewritten into **runnable Linux Bash equivalents** with job-number annotations; they do not independently establish the exact historical dependency chain. The original mixed code/theory draft is preserved as [historical notes](<Simple sieve of Eratosthenes in python-Theory and Code.md>), not a runnable `.py` program.
 
 ## Evidence and limitations
 

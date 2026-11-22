@@ -34,10 +34,10 @@ sbatch -N1 --ntasks-per-node=4 mr_mpi.sbatch mersenne 16 M4423,M9689
 sbatch -N1 --ntasks-per-node=4 mr_mpi.sbatch search 2048 60
 ```
 
-The historical [`slurm_commands.md`](Miller-Rabin-Results/slurm_commands.md) includes explanatory text of the form `(total ranks 16)` **inside command lines**. That parenthesized text is an annotation, not valid shell syntax. Use the executable examples above or [corrected run recipes](../docs/RUN_RECIPES.md).
+The historical submission notes now provide **runnable Linux Bash equivalents** with the intended rank counts. They are reconstructions rather than proof of the exact historical submission syntax or dependency order. See [run recipes](../docs/RUN_RECIPES.md).
 
 The batch file assumes the lab's Open MPI installation and its 192.168.10.0/24 interface. Run only after confirming the MPI environment on the current nodes.
 
 ## Limits of evidence
 
-Each configuration was recorded once; randomness affects searches, and composite early exits make witness-splitting timings incomparable to always-prime cases. Core-hour extrapolations are estimates. Keep raw logs linked to any published performance figures. The old `CODE.py` may contain mixed drafts; the validated benchmark entry point is the `mr_mpi.py` above.
+Each configuration was recorded once; randomness affects searches, and composite early exits make witness-splitting timings incomparable to always-prime cases. Core-hour extrapolations are estimates. Keep raw logs linked to any published performance figures. The old mixed draft is preserved as [historical notes](<Miller-Rabin Test For large primes - CODE.md>); the validated benchmark entry point is `mr_mpi.py` above.

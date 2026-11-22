@@ -1,14 +1,26 @@
 import numpy as np
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from scipy.special import assoc_laguerre, sph_harm_y
+from scipy.special import assoc_laguerre
+try:
+    from scipy.special import sph_harm_y
+    def orbital_harmonic(l, m, polar, azimuth):
+        return sph_harm_y(l, m, polar, azimuth)
+except ImportError:
+    # SciPy 1.13 on the recorded Rocky Linux cluster uses the legacy argument order.
+    from scipy.special import sph_harm
+    def orbital_harmonic(l, m, polar, azimuth):
+        return sph_harm(m, l, azimuth, polar)
+
 import math
 
 def hydrogen_probability_density(n, l, m, X, Y, Z, a0=1.0):
 
-    r = np.sqrt(X**2 + Y**2 + Z**2)
+    r = np.sqrt(X**2 + Y**2 + Z**2) + 1e-12
 
 
-    theta = np.arccos(Z / r)
+    theta = np.arccos(np.clip(Z / r, -1, 1))
 
     phi = np.arctan2(Y, X)
 
@@ -22,7 +34,7 @@ def hydrogen_probability_density(n, l, m, X, Y, Z, a0=1.0):
 
     R = norm_radial * np.exp(-rho/2) * rho**l * L
 
-    Ylm = sph_harm_y(l, m, theta, phi)
+    Ylm = orbital_harmonic(l, m, theta, phi)
 
     psi = R * Ylm
 
@@ -69,7 +81,8 @@ for i in range(1):
     ax.set_zlabel('z')
     ax.set_title(f'3D Hydrogen Orbital (n={n}, l={l}, m={m})')
 
-    plt.show()
+    fig.savefig(f"orbital_prototype_n{n}_l{l}_m{m}.png", dpi=150)
+    plt.close(fig)
     m+=1
 
 

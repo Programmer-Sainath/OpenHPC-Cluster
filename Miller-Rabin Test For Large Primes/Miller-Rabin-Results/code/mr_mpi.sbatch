@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=mrmpi
-#SBATCH --time=00:40:00
+#SBATCH --time=01:10:00
 #SBATCH --output=mrmpi-%j.out
 cd ~/jobs/millerrabin
 export PATH=/usr/lib64/openmpi/bin:$PATH

@@ -110,6 +110,8 @@ if __name__ == "__main__":
         for i in range(1, trials + 1):
             prime, host, secs = race(workers, pure)
             ok = check(prime)
+            if not ok:
+                raise RuntimeError(f"Candidate verification failed: trial {i}, workers={workers}")
             times.append(secs)
             out.write(f"{workers} {i} {secs:.3f} {host} {prime}\n")
             print(f"workers={workers} trial={i} time={secs:.2f}s node={host} verified={ok}", flush=True)

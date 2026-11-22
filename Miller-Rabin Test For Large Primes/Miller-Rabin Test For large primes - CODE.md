@@ -1,3 +1,8 @@
+# Historical prototype and theory notes
+
+This file is an **unchanged transcription** of the historical `Miller-Rabin Test For large primes - CODE.py` draft, which mixed Python snippets and explanatory text and was **not an executable script**. Use the documented benchmark implementation in the corresponding `*-Results/code/` directory instead.
+
+~~~~text
 """
 26/05/2026
 
@@ -283,5 +288,4 @@ def findprime_parallel(loopnum, num_workers=numthreads):
         return done.pop().result()
 
 _________________________________________________________________________________________
-
-
+~~~~

@@ -1,19 +1,19 @@
-# Slurm commands used
+# Slurm jobs — reproducible Linux Bash submission equivalents
 
-Four jobs, chained with --dependency=afterany so they never ran at the same time.
+The four archived jobs were run sequentially using `--dependency=afterany`. The commands below reconstruct their allocations and arguments in executable Bash; their historical dependency job IDs were not retained here. **Do not submit all large jobs indiscriminately.**
 
 ```bash
 # job 87
-sbatch --ntasks-per-node=1 (total ranks 1) sieve_mpi.sbatch 1e10
+sbatch -N1 --ntasks-per-node=1 sieve_mpi.sbatch 1e10
 # job 88
-sbatch --ntasks-per-node=4 (total ranks 4) sieve_mpi.sbatch 1e10
+sbatch -N1 --ntasks-per-node=4 sieve_mpi.sbatch 1e10
 # job 89
-sbatch --ntasks-per-node=4 (total ranks 16) sieve_mpi.sbatch 1e10
+sbatch -N4 --ntasks-per-node=4 sieve_mpi.sbatch 1e10
 # job 90
-sbatch --ntasks-per-node=4 (total ranks 16) sieve_mpi.sbatch 5e10
+sbatch -N4 --ntasks-per-node=4 sieve_mpi.sbatch 5e10
 ```
 
-Contents of sieve_mpi.sbatch:
+Current new-run launcher (`sieve_mpi.sbatch`):
 
 ```bash
 #!/bin/bash

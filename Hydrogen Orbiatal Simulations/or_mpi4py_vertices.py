@@ -1,13 +1,22 @@
 from mpi4py import MPI
 import numpy as np
-from scipy.special import assoc_laguerre, sph_harm_y
+from scipy.special import assoc_laguerre
+try:
+    from scipy.special import sph_harm_y
+    def orbital_harmonic(l, m, polar, azimuth):
+        return sph_harm_y(l, m, polar, azimuth)
+except ImportError:
+    # SciPy 1.13 on the recorded Rocky Linux cluster uses the legacy argument order.
+    from scipy.special import sph_harm
+    def orbital_harmonic(l, m, polar, azimuth):
+        return sph_harm(m, l, azimuth, polar)
+
 import math
 from skimage import measure
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 size = comm.Get_size()
-SystemError
 
 # parameters
 N = 80
@@ -44,7 +53,7 @@ def psi2(n, l, m, X, Y, Z, a0=1.0):
     )
 
     R = norm * np.exp(-rho / 2) * rho**l * L
-    Ylm = sph_harm_y(l, m, theta, phi)
+    Ylm = orbital_harmonic(l, m, theta, phi)
 
     return np.abs(R * Ylm) ** 2
 
@@ -71,6 +80,8 @@ if rank == 0:
     verts = verts * (2 * lim / (N - 1)) - lim
 
     # plot
+    import matplotlib
+    matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
     fig = plt.figure(figsize=(10, 8))
@@ -90,4 +101,5 @@ if rank == 0:
     ax.set_ylabel("y")
     ax.set_zlabel("z")
 
-    plt.show()
+    fig.savefig(f"orbital_isosurface_n{n}_l{l}_m{m}.png", dpi=150)
+    plt.close(fig)

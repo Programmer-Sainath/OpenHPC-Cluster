@@ -1,7 +1,19 @@
 import numpy as np
 from mpi4py import MPI
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from scipy.special import assoc_laguerre, sph_harm_y
+from scipy.special import assoc_laguerre
+try:
+    from scipy.special import sph_harm_y
+    def orbital_harmonic(l, m, polar, azimuth):
+        return sph_harm_y(l, m, polar, azimuth)
+except ImportError:
+    # SciPy 1.13 on the recorded Rocky Linux cluster uses the legacy argument order.
+    from scipy.special import sph_harm
+    def orbital_harmonic(l, m, polar, azimuth):
+        return sph_harm(m, l, azimuth, polar)
+
 import math
 
 comm = MPI.COMM_WORLD
@@ -39,7 +51,7 @@ for i in range(l+1):
         )
 
         R = norm_radial * np.exp(-rho / 2) * rho**l * L
-        Ylm = sph_harm_y(l, m, theta, phi)
+        Ylm = orbital_harmonic(l, m, theta, phi)
 
         psi = R * Ylm
         return np.abs(psi) ** 2
@@ -71,5 +83,6 @@ for i in range(l+1):
         ax.set_ylabel("y")
         ax.set_zlabel("z")
 
-        plt.show()
+        fig.savefig(f"orbital_prototype_n{n}_l{l}_m{m}.png", dpi=150)
+        plt.close(fig)
     m+=1

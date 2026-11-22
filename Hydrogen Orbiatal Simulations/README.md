@@ -28,7 +28,7 @@ The six PNGs for representative quantum numbers, sample counts, and rank counts 
 
 ![Hydrogen orbital (4,3,-3), 200M samples and 16 ranks](Hydrogen-Orbital-Results/images/orbital_n4_l3_m-3_N200000000_16ranks.png)
 
-These point-cloud images show a *sampled probability-density visualization*; they are not measured electron positions or a classical orbit.
+These images show **proposal-distribution samples filtered by computed probability density**, then colored according to density. They are neither independent draws from the exact electron-position distribution nor measured electron positions or classical orbits.
 
 ## Run a smaller new job
 
@@ -46,6 +46,6 @@ sbatch -N1 --ntasks-per-node=4 orbital2.sbatch 4 3 -3 1000000 0.001
 
 - The original benchmark used 1/4/16-rank scaling, but each configuration was run only once; further repetitions would quantify variance.
 - Sampling/importance-weighting estimates come with Monte Carlo uncertainty and must not be confused with exact numerical solutions.
-- The prototype `or_mpi4py_vertices.py` contains an accidental standalone `SystemError` name, which would prevent normal execution. That prototype is **not** part of the recorded benchmark and is intentionally not rewritten by this documentation patch.
+- The unbenchmarked orbital prototypes now include a SciPy 1.13-compatible spherical harmonic fallback and save plots on headless Linux systems. Their scientific and MPI behavior has **not** been benchmark-validated; use `orbital2.py` for reported measurements.
 
 [Full results](Hydrogen-Orbital-Results/results.md) · [Historic submissions](Hydrogen-Orbital-Results/slurm_commands.md) · [Original logs](Hydrogen-Orbital-Results/logs/)

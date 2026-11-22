@@ -1,36 +1,36 @@
-# Slurm commands used
+# Slurm jobs — reproducible Linux Bash submission equivalents
 
-Ten jobs, chained with --dependency=afterany so they never ran at the same time.
+The ten archived jobs were chained using `--dependency=afterany`. These lines reconstruct the job allocations and arguments as executable Linux Bash without recreating the original dependency job IDs. **Do not submit all large jobs indiscriminately.**
 
 ```bash
 # job 74
-sbatch --ntasks-per-node=1 (total ranks 1) mr_mpi.sbatch mersenne 16 M4423,M9689,M11213,C4253x4423
+sbatch -N1 --ntasks-per-node=1 mr_mpi.sbatch mersenne 16 M4423,M9689,M11213,C4253x4423
 # job 75
-sbatch --ntasks-per-node=4 (total ranks 4) mr_mpi.sbatch mersenne 16 M4423,M9689,M11213,C4253x4423
+sbatch -N1 --ntasks-per-node=4 mr_mpi.sbatch mersenne 16 M4423,M9689,M11213,C4253x4423
 # job 76
-sbatch --ntasks-per-node=4 (total ranks 16) mr_mpi.sbatch mersenne 16 M4423,M9689,M11213,C4253x4423
+sbatch -N4 --ntasks-per-node=4 mr_mpi.sbatch mersenne 16 M4423,M9689,M11213,C4253x4423
 # job 77
-sbatch --ntasks-per-node=4 (total ranks 16) mr_mpi.sbatch mersenne 16 M19937,M21701,M23209,C9941x11213
+sbatch -N4 --ntasks-per-node=4 mr_mpi.sbatch mersenne 16 M19937,M21701,M23209,C9941x11213
 # job 78
-sbatch --ntasks-per-node=1 (total ranks 1) mr_mpi.sbatch search 2048 60
+sbatch -N1 --ntasks-per-node=1 mr_mpi.sbatch search 2048 60
 # job 79
-sbatch --ntasks-per-node=4 (total ranks 4) mr_mpi.sbatch search 2048 60
+sbatch -N1 --ntasks-per-node=4 mr_mpi.sbatch search 2048 60
 # job 80
-sbatch --ntasks-per-node=4 (total ranks 16) mr_mpi.sbatch search 2048 60
+sbatch -N4 --ntasks-per-node=4 mr_mpi.sbatch search 2048 60
 # job 81
-sbatch --ntasks-per-node=4 (total ranks 16) mr_mpi.sbatch search 4096 120
+sbatch -N4 --ntasks-per-node=4 mr_mpi.sbatch search 4096 120
 # job 82
-sbatch --ntasks-per-node=4 (total ranks 16) mr_mpi.sbatch mersenne 16 M86243
+sbatch -N4 --ntasks-per-node=4 mr_mpi.sbatch mersenne 16 M86243
 # job 83
-sbatch --ntasks-per-node=4 (total ranks 16) mr_mpi.sbatch search 4096 2400
+sbatch -N4 --ntasks-per-node=4 mr_mpi.sbatch search 4096 2400
 ```
 
-Contents of mr_mpi.sbatch:
+Current **new-run** launcher (`mr_mpi.sbatch`), updated with a larger time limit; the archived 2026 logs remain historical:
 
 ```bash
 #!/bin/bash
 #SBATCH --job-name=mrmpi
-#SBATCH --time=00:40:00
+#SBATCH --time=01:10:00
 #SBATCH --output=mrmpi-%j.out
 cd ~/jobs/millerrabin
 export PATH=/usr/lib64/openmpi/bin:$PATH

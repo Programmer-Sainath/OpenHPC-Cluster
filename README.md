@@ -45,7 +45,7 @@ The LBM folder contains particularly extensive records: source snapshots, full j
 ## Getting started
 
 1. Read [setup and reproduction](docs/REPRODUCIBILITY.md) before submitting jobs. The included scripts contain paths and MPI network settings from the school's cluster that must be checked on a different environment.
-2. Choose a workload above. For executable **new-run** commands, use [run recipes](docs/RUN_RECIPES.md); historic command notes may include explanatory annotations rather than literal shell commands.
+2. Choose a workload above. For executable **new-run** commands, use [run recipes](docs/RUN_RECIPES.md); historical Slurm command notes now include executable **equivalents** where original dependency syntax was not preserved; they are not verbatim shell-history transcripts.
 3. Read the original `results.md` and logs before making performance claims. **Do not conflate archived timings with results of new runs.**
 
 The accompanying [`requirements.txt`](requirements.txt) records the major Python dependencies from the cluster environment as documented in the archived November 2026 inventory. It is not a full lockfile for OS packages, MPI, compilers, or every historical prototype.

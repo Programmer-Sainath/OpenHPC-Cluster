@@ -65,6 +65,6 @@ bash code/run-production.sh  # submits a new 16-rank production + encoder job
 cat prod.jobs
 ```
 
-The current `code/lbm.sbatch` and `code/encode.sbatch` are portable **reproduction variants** of the job scripts; exact scripts copied directly from the historical HPC run are under [`code/historical/`](code/historical/). On your Windows laptop (PowerShell) after a new encoding job completes, use `scp hpc@YOUR_ADMIN_HOST:/ABSOLUTE/PATH/TO/runs/prod-JOBID/vortex.mp4 "$HOME\Downloads\"`. The original video from job 97 is already included under `video/`.
+The current `code/lbm.sbatch` and `code/encode.sbatch` are portable **reproduction variants** of the job scripts; exact scripts copied directly from the historical HPC run are under [`code/historical/`](code/historical/). From a **Linux Bash terminal**, you can copy a newly encoded video from the admin node to another Linux machine using `scp hpc@YOUR_ADMIN_HOST:/ABSOLUTE/PATH/TO/runs/prod-JOBID/vortex.mp4 ./vortex.mp4`. Run that command on the receiving Linux machine, not inside the admin-node SSH session. The original video from job 97 is already included under `video/`.
 
 [Detailed results and primary evidence](results.md) · [Environment](environment.md) · [Slurm submissions](slurm_commands.md) · [Images](images/README.md) · [Video](video/README.md)
