@@ -30,6 +30,10 @@ This repository also serves as a technical reference for the actual cluster conf
 | **Aayush Pal**                   | Simulations · Performance Analysis                                         |
 
 
+![Three-member HPC project team in the school robotics lab](photos/project-team.jpg)
+
+*HPC project team in the school robotics lab. See the [photo gallery](docs/PHOTO_GALLERY.md) for additional photographs.*
+
 ## Hardware Architecture
 
 The cluster is built from five repurposed Lenovo ThinkCentre desktop PCs, using a dedicated management node and four compute nodes connected through an unmanaged Gigabit Ethernet switch.
