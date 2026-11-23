@@ -4,6 +4,15 @@
 
 > **Separate branches:** this is the **`Simulation-Workloads`** branch. Deployment and cluster configuration live in the [HPC Cluster Infrastructure branch](https://github.com/Programmer-Sainath/OpenHPC-Cluster/tree/HPC-Cluster-Infrastructure). These workloads are not an installer for the infrastructure.
 
+## Workload contributions
+
+| Developer | Workloads developed |
+|---|---|
+| **Shanmukha Sainath Kasireddy** | Lattice Boltzmann fluid dynamics (von Karman vortex shedding) and Chudnovsky pi calculation |
+| **Aayush Pal** | Distributed Sieve of Eratosthenes, Miller-Rabin primality testing, Dask-based primality search, and hydrogen orbital visualization |
+
+**Cluster execution.** Sainath ran all six workloads on the HPC cluster. He configured Slurm, submitted the jobs with `sbatch`, and allocated MPI tasks for the workloads that used MPI. Eric Bipin Philip installed OpenHPC and Open MPI.
+
 ## Simulation index
 
 | Workload | Method and parallel model | Representative archived result | Documentation |
