@@ -1,0 +1,7 @@
+# Live-observed selected active directives from /etc/chrony.conf, 2026-11-23.
+# These are an excerpt, not the full file or a deployment recipe.
+pool 2.rocky.pool.ntp.org iburst
+makestep 1.0 3
+rtcsync
+allow 192.168.10.0/24
+local stratum 10

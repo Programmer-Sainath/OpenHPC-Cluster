@@ -1,4 +1,6 @@
-# NFS exports recorded from the cluster build.
-
-/home 192.168.10.0/24(rw,sync,no_root_squash,no_subtree_check)
-/opt  192.168.10.0/24(ro,sync,no_root_squash,no_subtree_check)
+# Live /etc/exports observed 2026-11-23 (Warewulf-generated). REFERENCE ONLY.
+# Effective exportfs -v adds/defaults root_squash on /home, as verified.
+# Effective /opt is read-only with no_root_squash; review this policy.
+# Do not change the generated file in place without understanding Warewulf.
+/home 192.168.10.0/255.255.255.0(rw,sync)
+/opt 192.168.10.0/255.255.255.0(ro,sync,no_root_squash)

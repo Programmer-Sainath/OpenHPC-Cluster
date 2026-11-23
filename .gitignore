@@ -1,0 +1,28 @@
+# Machine-local secrets and credentials (never commit live Munge/SSH keys)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+!*.key.example
+**/munge.key
+**/ssh_host_*_key
+**/id_rsa
+**/id_ed25519
+**/id_ecdsa
+**/.ssh/
+.git-credentials
+*credentials*.json
+
+# Local backups, transient state, and outputs
+*.bak
+*.backup
+*.tmp
+*.swp
+*~
+*.log
+__pycache__/
+.pytest_cache/
+*.pyc
+backups/
+local-snapshots/
