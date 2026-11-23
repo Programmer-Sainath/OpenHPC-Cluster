@@ -15,6 +15,12 @@ flowchart TB
 
 The admin is connected to the **school network** through `enp2s0` and to the **private cluster LAN** through `enp3s0` (`192.168.10.2/24`). Its Slurm controller, Warewulf provisioning services, Munge, DHCP, TFTP/iPXE, NFS and Chrony support the compute nodes. This is a logical service diagram, not a verified port-by-port cable map.
 
+## Physical cluster photograph
+
+![Rear view of the five-node OpenHPC cluster with connected Ethernet cables and a central switch](../photos/cluster-overview-01.jpg)
+
+*Photograph of the assembled desktop nodes and cabling. This shows the physical installation, not a measured link-speed or port-level connectivity test. See the [photo gallery](PHOTO_GALLERY.md).*
+
 ## Job and provisioning life cycles
 
 1. **Provisioning (known deployment architecture):** Compute firmware PXE boots through the cluster switch; Warewulf-managed DHCP/TFTP/iPXE tells it where to obtain its image and overlays. The `rockylinux-9` image, `default` profile, and four node records were observed, but boot packet captures and restart tests were not collected.

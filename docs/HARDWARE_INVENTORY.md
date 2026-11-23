@@ -15,3 +15,10 @@ Admin partitioning observed: EFI 600 MiB, `/boot` 1 GiB, XFS LVM `/` 70 GiB, `/h
 **Totals:** 5 CPUs × 4 logical CPU resources = 20 across the five machines. The compute partition contains 16 Slurm-schedulable CPUs. Nominal RAM: 16 GB per machine, 80 GB aggregate; **64 GB nominal compute-node RAM**, of which Slurm advertises 60,000 MB. Those quantities are different measurements and must not be conflated.
 
 Network switch from team inventory: **TP-Link LS1016G unmanaged 16-port Gigabit Ethernet**; an earlier Cisco Catalyst switch was replaced during development. Device MAC addresses appear in the historical `networking/cluster-layout.conf` and should be treated as internal machine identifiers, not authentication credentials. Avoid adding serial numbers or photos containing visible asset tags to a public repo without school approval.
+
+
+## Switch photograph
+
+![TP-Link LiteWave LS1016G 16-port Gigabit Ethernet switch with connected cluster cables](../photos/ethernet-switch-ls1016g.jpg)
+
+*The front panel identifies the TP-Link LiteWave LS1016G; a closer view of the assembled cluster and additional photos are in the [photo gallery](PHOTO_GALLERY.md). The photo does not by itself establish throughput or detailed port mapping.*

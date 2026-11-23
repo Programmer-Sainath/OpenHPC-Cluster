@@ -14,6 +14,12 @@
 
 `SUPERSEDED` beside `ImageName` in the `wwctl` output indicates the displayed value's source/override context, not a failed image. An overlay named `rootkey` exists, and `warewulf:secure` is `false`. **Do not publish overlay contents, inspect private keys in public output, or assume a particular method of distributing the Munge key.** The historical overlay commands are not evidence of the current key-delivery mechanism.
 
+## Photographic node-console evidence
+
+![Warewulf node01 console showing rockylinux-9 image and its configured node address](../photos/warewulf-node01.jpg)
+
+*Example console at the `node01` login prompt. Equivalent photographs for `node02`–`node04` appear in the [photo gallery](PHOTO_GALLERY.md). These photographs show the console state when captured; they are not a controlled fresh-PXE-reboot validation.*
+
 ## Observational commands (read only)
 
 ```bash

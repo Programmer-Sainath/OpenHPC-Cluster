@@ -4,6 +4,10 @@
  The project focuses on cluster infrastructure, node provisioning, workload scheduling, networking, shared storage, and parallel computing.
  Developed as a long-term educational resource, it aims to make practical scientific computing and HPC system administration more accessible within a school environment.
 
+![Five-node OpenHPC cluster assembled from repurposed desktops](photos/cluster-overview-02.jpg)
+
+*Physical five-node cluster with a TP-Link LS1016G Gigabit switch. See the [photo gallery](docs/PHOTO_GALLERY.md) for individual node consoles and other views.*
+
 ---
 
 ## Overview
@@ -120,6 +124,7 @@ For hardware specifications, software versions, networking, storage, and detaile
 | Config-by-config audit | [Configuration Catalog](docs/CONFIG_CATALOG.md) |
 | Known gaps | [Known Limitations](docs/KNOWN_LIMITATIONS.md) |
 | Development history | [Project Timeline](docs/PROJECT_TIMELINE.md) and [Troubleshooting](troubleshooting.md) |
+| Photos of the physical cluster and node consoles | [Photo Gallery](docs/PHOTO_GALLERY.md) |
 
 **Evidence convention:** *verified* = visible in 2026-11-23 live command output; *historical* = older build notes; *planned* = not yet deployed/tested. Please do not mistake archived shell commands ending in `.conf` for production-ready installers.
 
