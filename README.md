@@ -54,8 +54,8 @@ The accompanying [`requirements.txt`](requirements.txt) records the major Python
 
 These demonstrations have different validation standards. For example, LBM qualitatively shows a vortex street but has **not** established Strouhal number or grid-convergence validation; Miller–Rabin returns *probable-prime* verdicts, not general proofs; the large sieve result relies on spot checks where a reference value was unavailable. See [known limitations](docs/KNOWN_LIMITATIONS.md) for provenance and missing materials.
 
-## Contributions, acknowledgements, and license
+## Acknowledgements, and license
 
-This work was conducted as part of the **DPS–Modern Indian School HPC Cluster project**. See the [infrastructure branch](https://github.com/Programmer-Sainath/OpenHPC-Cluster/tree/HPC-Cluster-Infrastructure) for the documented project team and responsibilities. Workload-level authorship is not inferred solely from file names; contributions should be credited explicitly in a future `CONTRIBUTORS.md` after checking with the team.
+This work was conducted as part of the **DPS–Modern Indian School HPC Cluster project**. See the [infrastructure branch](https://github.com/Programmer-Sainath/OpenHPC-Cluster/tree/HPC-Cluster-Infrastructure) for the documented project team and responsibilities.
 
 The project acknowledges the school for access to its robotics-lab hardware and the open-source communities behind Rocky Linux, Warewulf, OpenHPC, Slurm, Open MPI, Python, NumPy, SciPy, and Dask. See the branch [`LICENSE`](LICENSE) for licensing terms.
