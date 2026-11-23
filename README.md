@@ -15,6 +15,8 @@
 
 ## Simulation index
 
+Four desktops completed the fixed CFD problem in **88.26 s**, versus **322.65 s** on all four cores of one desktop (**3.66×**). The 50-billion sieve distributed **23.28 GiB** of arrays and finished in **68.9 s**. [Benchmark verification and comparison](docs/BENCHMARK_REVIEW.md)
+
 | Workload | Method and parallel model | Representative archived result | Documentation |
 |---|---|---|---|
 | Lattice Boltzmann fluid dynamics | 2D D2Q9 BGK solver in C + MPI across four nodes | 12.00× measured speedup at 16 versus 1 MPI ranks (identical workload) | [Read](<Lattice Boltzman Fluid Dynamics ( Von Kármán vortex street)/README.md>) |
