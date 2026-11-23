@@ -167,6 +167,8 @@ The configuration files are intended for technical inspection, learning, trouble
 
 ## Simulation Workloads
 
+Four desktops completed the fixed CFD problem in **88.26 s**, versus **322.65 s** on all four cores of one desktop (**3.66×**). The 50-billion sieve distributed **23.28 GiB** of arrays and finished in **68.9 s**. [Benchmark verification and comparison](https://github.com/Programmer-Sainath/OpenHPC-Cluster/blob/Simulation-Workloads/docs/BENCHMARK_REVIEW.md)
+
 Scientific applications and simulation-related work are maintained separately to keep the infrastructure documentation focused on cluster deployment and management.
 
 See the [**Simulation Workloads branch**](https://github.com/Programmer-Sainath/OpenHPC-Cluster/tree/Simulation-Workloads) for the project's computational workloads and related development.

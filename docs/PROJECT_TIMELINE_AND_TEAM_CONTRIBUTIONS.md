@@ -11,7 +11,7 @@
 | Member | Role and documented contributions |
 |---|---|
 | **Shanmukha Sainath Kasireddy** | Led cluster integration and administration, including the admin OS, PCIe network interface, private networking and NFS. Built the four-node runtime overlay with Eric. After that handoff, configured Munge, the firewall and Slurm, verified the cluster, and handled task allocation and job submission for all six workloads. Developed **two** workloads: Lattice Boltzmann fluid dynamics (von Kármán vortex shedding) and the Chudnovsky π calculation. |
-| **Eric Bipin Philip** | Set up Tailscale, installed OpenHPC and Open MPI, identified the compute nodes by IP and MAC address, and registered and provisioned them with Warewulf. Built the runtime overlay with Sainath and helped diagnose Linux and node communication issues. |
+| **Eric Bipin Philip** | Installed OpenHPC and Open MPI, registered the compute nodes, and set up initial Warewulf provisioning. Helped configure runtime overlay files until all four nodes reported their overlays. Assisted with Linux and connectivity troubleshooting. |
 | **Aayush Pal** | Developed **four** workloads: the distributed Sieve of Eratosthenes, Miller–Rabin primality testing, Dask-based primality search, and hydrogen orbital visualization. Contributed to performance analysis and resolved the Warewulf overlay flag issue. |
 
 **Shared troubleshooting.** Sainath, Eric and Aayush jointly resolved the Slurm node-response issue that appeared as `idle*` and `unknown*` in `sinfo`.
@@ -25,7 +25,7 @@
 1. **Hardware organization and project leadership — Shanmukha Sainath Kasireddy.** Sainath coordinated the core build of a cluster using repurposed desktop computers. The deployment eventually settled on **one administrator plus four compute nodes**, rather than the larger node counts described in early planning. **Eric Bipin Philip** assisted with initial infrastructure work. Eric also documented an early discussion about RHEL subscription limits and a possible move to AlmaLinux; those were **historical proposals**, not the final Rocky Linux environment.
 2. **Administrator operating system and storage — primarily Sainath.** The administrator's Linux installation was prepared using a **Lexar 128 GB SATA SSD**. The eventual disk was observed as approximately **119.2 GiB**. Installation and configuration were revisited later; the October filesystem metadata should not be treated as the date of the first install.
 3. **Initial private networking and dual-NIC arrangement — primarily Sainath.** The team established an administrator-facing cluster LAN and obtained a **TP-Link TG-3468 Gigabit PCIe Ethernet adapter**. The extra adapter allowed the administrator to connect to the school/internet network separately from the private compute-node switch. This did **not** give each compute node an independent campus/internet connection. Sainath subsequently maintained and refined the private networking and firewall configuration.
-4. **Tailscale remote administration — Eric.** **Eric Bipin Philip installed and configured Tailscale**, enabling the team to access the administrator remotely. Team members used the remote path together with SSH to perform administrative and debugging work when not physically at the cluster.
+4. **Remote access.** Tailscale allowed team members to use SSH from their own laptops to administer the cluster remotely.
 5. **Initial HPC software installation — Eric.** During the **August–September initial setup phase**, **Eric installed OpenHPC and OpenMPI and set up the initial OpenMPI environment**. These early installations were an essential foundation, while later integration, service configuration and independent MPI runtime validation remained separate work.
 6. **Early troubleshooting — Sainath and Eric.** Both worked through initial Linux, interface, connectivity and installation challenges. The team adjusted its plan as actual hardware and software requirements became clearer.
 
@@ -54,7 +54,7 @@ By this phase, **Shanmukha Sainath Kasireddy was the principal builder and admin
 
 | Component | Principal responsibility and purpose |
 |---|---|
-| **Private networking** | **Sainath:** administrator/compute-node connectivity, interface and addressing adjustments, and connectivity checks. **Eric** had handled the earlier Tailscale setup and initial MAC/IP discovery and registration. |
+| **Private networking** | Sainath configured interfaces, addressing and connectivity. Eric registered compute nodes during initial provisioning. |
 | **Firewall (`firewalld`)** | **Sainath:** configured and revisited firewall rules and network zones so cluster services could communicate across the private network. |
 | **Warewulf provisioning** | **Sainath:** continued image/profile, node and overlay integration, then handled provisioning fixes. **Eric** performed initial setup; **Aayush** assisted with overlay-specific issues. |
 | **Runtime/system overlays** | Eric and Sainath built the runtime overlay together. Sainath handled overlay assignments and verified all four nodes. Aayush corrected the overlay command syntax. |
