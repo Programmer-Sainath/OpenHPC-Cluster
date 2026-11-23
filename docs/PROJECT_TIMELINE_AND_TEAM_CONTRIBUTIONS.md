@@ -6,6 +6,16 @@
 **Project lead:** **Shanmukha Sainath Kasireddy**
 **Team:** **Shanmukha Sainath Kasireddy**, **Eric Bipin Philip**, and **Aayush Pal**
 
+## Team contribution summary
+
+| Member | Role and documented contributions |
+|---|---|
+| **Shanmukha Sainath Kasireddy** | Led cluster integration and administration, including the admin OS, PCIe network interface, private networking and NFS. Built the four-node runtime overlay with Eric. After that handoff, configured Munge, the firewall and Slurm, verified the cluster, and handled task allocation and job submission for all six workloads. Developed **two** workloads: Lattice Boltzmann fluid dynamics (von Kármán vortex shedding) and the Chudnovsky π calculation. |
+| **Eric Bipin Philip** | Set up Tailscale, installed OpenHPC and Open MPI, identified the compute nodes by IP and MAC address, and registered and provisioned them with Warewulf. Built the runtime overlay with Sainath and helped diagnose Linux and node communication issues. |
+| **Aayush Pal** | Developed **four** workloads: the distributed Sieve of Eratosthenes, Miller–Rabin primality testing, Dask-based primality search, and hydrogen orbital visualization. Contributed to performance analysis and resolved the Warewulf overlay flag issue. |
+
+**Shared troubleshooting.** Sainath, Eric and Aayush jointly resolved the Slurm node-response issue that appeared as `idle*` and `unknown*` in `sinfo`.
+
 > **Chronology and attribution:** This is a retrospective development history based on the team's account, the [historical troubleshooting log](../troubleshooting.md), repository materials, and the deployment verification performed on **23 November 2026**. Where no dated record exists, activities are attributed to a **month or development phase**, not an invented day. Some tasks overlapped or had to be repeated after reinstallation. Named ownership reflects who primarily worked on each subsystem; it does not imply others never helped. The final configuration is documented in [Live Configuration](LIVE_CONFIGURATION.md).
 
 ## August 2026 — Hardware, administrator setup, internet and remote access
@@ -85,16 +95,6 @@ While infrastructure debugging continued, **Aayush Pal** developed most of the t
 By **23 November 2026**, the team had built and documented a **working five-node educational HPC cluster** using repurposed school computers. It demonstrated **diskless node provisioning, shared storage, authenticated scheduling, four-node Slurm task launch and measurable parallel speedup** on an actual scientific workload. The team regards the infrastructure build and six-workload project as a success.
 
 This is appropriately described as a **student-built HPC / educational supercomputing project**. Running simulations alone does not establish a formal *supercomputer* designation, and the recorded speedup does **not** prove that the system is faster than any particular modern gaming PC. Such a comparison would require matched workloads and hardware benchmarks. Likewise, full MPI re-testing after the documentation audit, fresh post-reboot provisioning recovery and further security/scientific validation were not all established by the November 23 snapshot.
-
-## Team contribution summary
-
-| Member | Role and documented contributions |
-|---|---|
-| **Shanmukha Sainath Kasireddy** | Led cluster integration and administration, including the admin OS, PCIe network interface, private networking and NFS. Built the four-node runtime overlay with Eric. After that handoff, configured Munge, the firewall and Slurm, verified the cluster, and handled task allocation and job submission for all six workloads. Developed **two** workloads: Lattice Boltzmann fluid dynamics (von Kármán vortex shedding) and the Chudnovsky π calculation. |
-| **Eric Bipin Philip** | Set up Tailscale, installed OpenHPC and Open MPI, identified the compute nodes by IP and MAC address, and registered and provisioned them with Warewulf. Built the runtime overlay with Sainath and helped diagnose Linux and node communication issues. |
-| **Aayush Pal** | Developed **four** workloads: the distributed Sieve of Eratosthenes, Miller–Rabin primality testing, Dask-based primality search, and hydrogen orbital visualization. Contributed to performance analysis and resolved the Warewulf overlay flag issue. |
-
-**Shared troubleshooting.** Sainath, Eric and Aayush jointly resolved the Slurm node-response issue that appeared as `idle*` and `unknown*` in `sinfo`.
 
 ## Supporting evidence and historical caveats
 
