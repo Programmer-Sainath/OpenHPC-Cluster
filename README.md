@@ -113,7 +113,6 @@ For dated **live-confirmed** hardware, versions, DHCP, exports, time synchroniza
 | Config-by-config audit | [Configuration Catalog](docs/CONFIG_CATALOG.md) |
 | Known gaps | [Known Limitations](docs/KNOWN_LIMITATIONS.md) |
 | Development history | [Project Timeline](docs/PROJECT_TIMELINE.md) and [Troubleshooting](troubleshooting.md) |
-| Team credit | [Contributors](CONTRIBUTORS.md) |
 
 **Evidence convention:** *verified* = visible in 2026-11-23 live command output; *historical* = older build notes; *planned* = not yet deployed/tested. Please do not mistake archived shell commands ending in `.conf` for production-ready installers.
 
