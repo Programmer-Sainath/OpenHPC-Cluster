@@ -8,8 +8,8 @@
 
 | Developer | Workloads developed |
 |---|---|
-| **Shanmukha Sainath Kasireddy** | Lattice Boltzmann fluid dynamics (von Karman vortex shedding) and Chudnovsky pi calculation |
 | **Aayush Pal** | Distributed Sieve of Eratosthenes, Miller-Rabin primality testing, Dask-based primality search, and hydrogen orbital visualization |
+| **Shanmukha Sainath Kasireddy** | Lattice Boltzmann fluid dynamics (von Karman vortex shedding) and Chudnovsky pi calculation |
 
 **Cluster execution.** Sainath ran all six workloads on the HPC cluster. He configured Slurm, submitted the jobs with `sbatch`, and allocated MPI tasks for the workloads that used MPI. Eric Bipin Philip installed OpenHPC and Open MPI.
 
