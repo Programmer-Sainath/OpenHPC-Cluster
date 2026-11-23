@@ -19,11 +19,11 @@ This repository also serves as a technical reference for the actual cluster conf
 
 ## Team
 
-| Member                          | Role and Responsibilities                                                  |
-| ------------------------------- | -------------------------------------------------------------------------- |
-| **Shanmukha Sainath Kasireddy** | Project Director · HPC Infrastructure Engineer · Simulations               |
-| **Eric Bipin Philip**           | Software · Infrastructure · Linux Administration                           |
-| **Aayush Pal**                  | Simulations · Performance Analysis                                         |
+| Member                           | Role and Responsibilities                                                  |
+| -------------------------------  | -------------------------------------------------------------------------- |
+| **Shanmukha Sainath Kasireddy**  | Project Lead · Cluster Setup & Administration · Slurm · Simulations        |
+| **Eric Bipin Philip**            | Cluster Provisioning · Linux Administration · Troubleshooting              |
+| **Aayush Pal**                   | Simulations · Performance Analysis                                         |
 
 
 ## Hardware Architecture
