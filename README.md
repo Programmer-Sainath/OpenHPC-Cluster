@@ -88,13 +88,20 @@ The infrastructure uses open-source tools for provisioning, workload scheduling,
 
 *The table describes the roles of the software components; successful operation of each service depends on the deployed configuration and verification.*
 
-## Verified deployment snapshot (23 November 2026)
+## Verified Deployment — 23rd November 2026
 
-On the administrator, `sinfo -N -l` reported **four idle compute nodes**, each with **4 logical CPUs and 15,000 MB of Slurm-configured memory** (16 CPUs and 60,000 MB total configured in Slurm). `systemctl is-active` reported `munge`, `slurmctld`, and `warewulfd` as active.
+The five-node OpenHPC cluster (1 administrator + 4 compute nodes) was verified operational using Slurm.
 
-A lightweight `srun --partition=debug --nodes=4 --ntasks=4 --ntasks-per-node=1 --time=00:02:00 /usr/bin/hostname` test returned `node01`, `node02`, `node03`, and `node04` (order varied). This confirms Slurm remote task launch across all four nodes **at the time of the test**; it is not proof that all MPI software, storage scenarios, or provisioning after reboot have been validated.
+- **Compute resources:** 16 CPU cores and 60,000 MB of Slurm-configured memory across four nodes.
+- **Node status:** All four compute nodes reported `idle`.
+- **Services:** Munge, Slurm controller, and Warewulf services confirmed active.
+- **Distributed execution:** A four-node Slurm `srun` test successfully executed tasks on `node01`–`node04`.
 
-For dated **live-confirmed** hardware, versions, DHCP, exports, time synchronization, NFS mounts, firewall status and remaining security questions, see [`docs/LIVE_CONFIGURATION.md`](docs/LIVE_CONFIGURATION.md). Some files in this branch are historical examples and **must not be executed as an installer** or treated as complete copies of the active `/etc` configuration.
+The verification confirms successful Slurm task execution across all four compute nodes at the time of testing. Full MPI validation and post-reboot provisioning tests remain separate.
+
+For hardware specifications, software versions, networking, storage, and detailed verification evidence, see [`docs/LIVE_CONFIGURATION.md`](docs/LIVE_CONFIGURATION.md).
+
+*Note: Configuration references include historical examples and should not be treated as a complete automated installation procedure.*
 
 ## Documentation index
 
@@ -153,16 +160,6 @@ See the [**Simulation Workloads branch**](https://github.com/Programmer-Sainath/
 
 The intended application areas include computational physics, mathematical modelling, numerical methods, and Computational Fluid Dynamics (CFD).
 
-## Development Roadmap
-
-* [x] Register all four compute nodes with Slurm; confirm `idle` state (2026-11-23).
-* [x] Verify Slurm can execute a task on each of the four nodes using `srun` (2026-11-23).
-* [ ] Independently validate full compute-node provisioning, reboot recovery, and current MPI runtime execution.
-* [x] Archive prior simulation benchmark outputs in the separate Simulation Workloads branch.
-* [ ] Perform additional reproducible benchmark runs and independent scientific validation.
-* [ ] Expand scientific workload testing and performance analysis.
-* [x] Publish dated, verified configuration documentation (2026-11-23).
-* [ ] Evaluate future storage and compute-capacity expansion.
 
 ## Acknowledgements
 
