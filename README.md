@@ -8,6 +8,10 @@
 
 *Physical five-node cluster with a TP-Link LS1016G Gigabit switch. See the [photo gallery](docs/PHOTO_GALLERY.md) for individual node consoles and other views.*
 
+## Project Timeline and Team Contributions
+
+**[Read the Project Timeline and Team Contributions (August–November 2026)](docs/PROJECT_TIMELINE_AND_TEAM_CONTRIBUTIONS.md)** — A month-by-month account of the cluster build, team responsibilities, configuration work, troubleshooting, and simulations.
+
 ---
 
 ## Overview
@@ -127,7 +131,7 @@ For hardware specifications, software versions, networking, storage, and detaile
 | Daily read-only checks | [Operations](docs/OPERATIONS.md) |
 | Config-by-config audit | [Configuration Catalog](docs/CONFIG_CATALOG.md) |
 | Known gaps | [Known Limitations](docs/KNOWN_LIMITATIONS.md) |
-| Development history | [Project Timeline](docs/PROJECT_TIMELINE.md) and [Troubleshooting](troubleshooting.md) |
+| Development history | [Project Timeline and Team Contributions](docs/PROJECT_TIMELINE_AND_TEAM_CONTRIBUTIONS.md) and [Troubleshooting](troubleshooting.md) |
 | Photos of the physical cluster and node consoles | [Photo Gallery](docs/PHOTO_GALLERY.md) |
 
 **Evidence convention:** *verified* = visible in 2026-11-23 live command output; *historical* = older build notes; *planned* = not yet deployed/tested. Please do not mistake archived shell commands ending in `.conf` for production-ready installers.

@@ -1,4 +1,4 @@
-# Project Timeline — August to November 2026
+# Project Timeline and Team Contributions — August to November 2026
 
 **Project:** Student-built OpenHPC / high-performance computing cluster, DPS–Modern Indian School, Qatar
 **Development period:** August–November 2026
